@@ -1,7 +1,6 @@
 ##### _xml
 Applicable in XML: XML text
 ###### template text:
-    <!-- language: xml -->
     <?xml version="1.0" encoding="utf-8"?>
     <odoo>
 
@@ -15,7 +14,7 @@ Variables...
 - **dash_model**, regularExpression(dot_model, "\\\\.", "_")
 - **title**
 ###### template text:
-    <!-- language: xml -->
+    <!-- FORM VIEW -->
     <record id="$dash_model$_form_view" model="ir.ui.view">
         <field name="name">$dot_model$.form</field>
         <field name="model">$dot_model$</field>
@@ -71,7 +70,7 @@ Variables...
 - **dash_model**, regularExpression(dot_model, "\\\\.", "_")
 - **title**
 ###### template text:
-    <!-- language: xml -->
+    <!-- TREE VIEW -->
     <record id="$dash_model$_list_view" model="ir.ui.view">
         <field name="name">$dot_model$.list</field>
         <field name="model">$dot_model$</field>
@@ -91,7 +90,7 @@ Variables...
 - **dash_model**, regularExpression(dot_model, "\\\\.", "_")
 - **title**
 ###### template text:
-    <!-- language: xml -->
+    <!-- SEARCH VIEW -->
     <record id="$dash_model$_filter_view" model="ir.ui.view">
         <field name="name">$dot_model$.filter</field>
         <field name="model">$dot_model$</field>
@@ -118,7 +117,7 @@ Variables...
 - **another**
 - **m2m**
 ###### template text:
-    <!-- language: xml -->
+    <!-- KANBAN VIEW -->
     <record id="$dash_model$_kanban_view" model="ir.ui.view">
         <field name="name">$dot_model$.kanban</field>
         <field name="model">$dot_model$</field>
@@ -172,7 +171,7 @@ Variables...
 - **low_title**, lowercaseAndDash(title)
 - **seq**
 ###### template text:
-    <!-- language: xml -->
+    <!-- ACTION -->
     <record id="$dash_model$_action_all" model="ir.actions.act_window">
         <field name="name">$title$</field>
         <field name="type">ir.actions.act_window</field>
