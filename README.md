@@ -1,12 +1,9 @@
 
-#### Import odoo libraries fragment code
+#### Odoo 15 Live Templates
+- [Python](python/README.md)
 
-<!-- language: xml -->
-    <template name="odooimport" value="# -*- coding: utf-8 -*-&#10;&#10;from odoo import api, fields, models, _&#10;from odoo.exceptions import ValidationError&#10;from odoo.osv import expression&#10;" description="" toReformat="false" toShortenFQNames="true">
-        <context>
-            <option name="Python_Top_Level" value="true" />
-        </context>
-    </template>
+- [XML](xml/README.md)
+
 
 #### How to use in
 - [CentOS](CentOS/README.md)
