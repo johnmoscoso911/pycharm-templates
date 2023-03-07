@@ -82,3 +82,33 @@
         def $fx$(self):
             return {}
 
+
+##### _name_search
+<!-- language: python -->
+    @api.model
+    def _name_search(self, name, args=None, operator='ilike', limit=100, name_get_uid=None):
+        if not args:
+            args = []
+        if name:
+            domain = [
+                '|',
+                ('name', operator, name),
+                ('$field$', operator, name)
+            ]
+            domain = expression.AND([args, domain])
+            _ids = list(self._search(domain, limit=limit, access_rights_uid=name_get_uid))
+        else:
+            _ids = self._search(args, limit=limit, access_rights_uid=name_get_uid)
+        return _ids
+
+
+##### _name_get
+<!-- language: python -->
+    def name_get(self):
+        res = []
+        for $obj$ in self:
+            name = $obj$.name
+            if $obj$.$field$:
+                name = '%s - %s' % (name, $obj$.$field$)
+            res.append(($obj$.id, name))
+        return res
