@@ -185,3 +185,61 @@ Variables...
         </field>
     </record>
     <menuitem id="menu_$dash_model$" action="$dash_model$_action_all" sequence="$seq$" groups="base.group_user"/>
+
+
+##### _act_wizard
+Applicable in XML: XML text, XML tag.
+Variables...
+- **dot_model**
+- **dash_model**, regularExpression(dot_model, "\\\\.", "_")
+- **title**
+###### template text:
+    <!-- WIZARD ACTION -->
+    <record id="$dash_model$_action_all" model="ir.actions.act_window">
+        <field name="name">$title$</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">$dot_model$</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+
+
+##### _form_wizard
+Applicable in XML: XML text, XML tag.
+Variables...
+- **dot_model**
+- **dash_model**, regularExpression(dot_model, "\\\\.", "_")
+- **legend**
+- **selection**, , "action"
+- **val1**
+- **val2**
+- **action_text**
+###### template text:
+    <!-- WIZARD FORM -->
+    <record id="$dash_model$_form" model="ir.ui.view">
+        <field name="name">$dot_model$.form</field>
+        <field name="model">$dot_model$</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="" invisible="1"/>
+                <div class="alert alert-info text-center" role="status">
+                    $legend$
+                </div>
+                <!--<field name="$selection$" invisible="context.get('hide_automatic_options')" widget="radio" options="{'horizontal': true}"/>-->
+                <group>
+                    <!--<group attrs="{'invisible': [('$selection$', '!=', '$val1$')]}">
+                        <field name="" string=""/>
+                    </group>
+                    <group attrs="{'invisible': [('$selection$', '!=', '$val2$')]}">
+                        <field name="" string=""/>
+                    </group>-->
+                    <group>
+                        <field name=""/>
+                    </group>
+                </group>
+                <footer>
+                    <button string="$action_text$" name="do_action" type="object" class="oe_highlight" data-hotkey="q"/>
+                    <button string="Cancel" class="btn btn-secondary" special="cancel" data-hotkey="z"/>
+                </footer>
+            </form>
+        </field>
+    </record>
